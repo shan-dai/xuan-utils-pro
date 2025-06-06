@@ -1,8 +1,9 @@
-package xuan.core.meihua;
+package xuan.core;
 
 import java.util.Date;
 
 import org.junit.Test;
+import xuan.core.meihua.MeiHua;
 import xuan.core.meihua.settings.MeiHuaJiChuSetting;
 
 /**
@@ -66,9 +67,6 @@ public class MeiHuaTest {
         System.out.println("季节：" + meiHua.getJiJie());
         System.out.println("生肖：" + meiHua.getShengXiao());
         System.out.println("星座：" + meiHua.getXingZuo());
-        System.out.println("月相：" + meiHua.getYueXiang());
-        System.out.println("月将：" + meiHua.getYueJiang());
-        System.out.println("月将神：" + meiHua.getYueJiangShen());
         System.out.println("五不遇时：" + meiHua.getWuBuYuShi());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
@@ -126,6 +124,36 @@ public class MeiHuaTest {
         System.out.println("月干支空亡：" + meiHua.getMonthGanZhiKongWang());
         System.out.println("日干支空亡：" + meiHua.getDayGanZhiKongWang());
         System.out.println("时干支空亡：" + meiHua.getHourGanZhiKongWang());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一节：" + meiHua.getPrevJie());
+        System.out.println("上一节日期：" + meiHua.getPrevJieDateStr());
+        System.out.println("距上一节天数：" + meiHua.getPrevJieDay());
+        System.out.println();
+        System.out.println("下一节：" + meiHua.getNextJie());
+        System.out.println("下一节日期：" + meiHua.getNextJieDateStr());
+        System.out.println("距下一节天数：" + meiHua.getNextJieDay());
+        System.out.println();
+        System.out.println("出生节：" + meiHua.getChuShengJie());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一气：" + meiHua.getPrevQi());
+        System.out.println("上一气日期：" + meiHua.getPrevQiDateStr());
+        System.out.println("距上一气天数：" + meiHua.getPrevQiDay());
+        System.out.println();
+        System.out.println("下一气：" + meiHua.getNextQi());
+        System.out.println("下一气日期：" + meiHua.getNextQiDateStr());
+        System.out.println("距下一气天数：" + meiHua.getNextQiDay());
+        System.out.println();
+        System.out.println("出生气：" + meiHua.getChuShengQi());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("月相：" + meiHua.getYueXiang());
+        System.out.println("月将：" + meiHua.getYueJiang());
+        System.out.println("月将神：" + meiHua.getYueJiangShen());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
 

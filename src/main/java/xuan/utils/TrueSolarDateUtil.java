@@ -79,7 +79,7 @@ public class TrueSolarDateUtil {
         // 3、地区校验
         if ("内网IP".equals(address) || null == address) {
             // 3.1、在线定位：通过机器ip定位获取地区（若机器ip为空，则根据发送请求的机器ip定位）
-            address = BaiduMapsUtil.getIpToAddress("");
+            address = BaiduMapsUtil.getAddressToIp("");
         }
 
         // 4、通过地区获取经纬度

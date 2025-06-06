@@ -12,24 +12,24 @@ import java.util.*;
 public class LiuYaoJiChuMap {
 
     /**
-     * 月将、月将神（地支为键）
+     * 月将、月将神（上一气+下一气为键）
      */
     public static final Map<String, List<String>> YUE_JIANG = new HashMap<String, List<String>>() {
         private static final long serialVersionUID = -1;
 
         {
-            put("子", Arrays.asList("丑", "大吉")); // 丑为月将，大吉为月将神
-            put("丑", Arrays.asList("子", "神后"));
-            put("寅", Arrays.asList("亥", "登明"));
-            put("卯", Arrays.asList("戌", "河魁"));
-            put("辰", Arrays.asList("酉", "从魁"));
-            put("巳", Arrays.asList("申", "传送"));
-            put("午", Arrays.asList("未", "小吉"));
-            put("未", Arrays.asList("午", "胜光"));
-            put("申", Arrays.asList("巳", "太乙"));
-            put("酉", Arrays.asList("辰", "天罡"));
-            put("戌", Arrays.asList("卯", "太冲"));
-            put("亥", Arrays.asList("寅", "功曹"));
+            put("大寒雨水", Arrays.asList("子", "神后")); // 大寒至雨水：月将为子，月将神为神后
+            put("冬至大寒", Arrays.asList("丑", "大吉"));
+            put("小雪冬至", Arrays.asList("寅", "功曹"));
+            put("霜降小雪", Arrays.asList("卯", "太冲"));
+            put("秋分霜降", Arrays.asList("辰", "天罡"));
+            put("处暑秋分", Arrays.asList("巳", "太乙"));
+            put("大暑处暑", Arrays.asList("午", "胜光"));
+            put("夏至大暑", Arrays.asList("未", "小吉"));
+            put("小满夏至", Arrays.asList("申", "传送"));
+            put("谷雨小满", Arrays.asList("酉", "从魁"));
+            put("春分谷雨", Arrays.asList("戌", "河魁"));
+            put("雨水春分", Arrays.asList("亥", "登明"));
         }
     };
 

@@ -1,8 +1,9 @@
-package xuan.core.qimen;
+package xuan.core;
 
 import java.util.Date;
 
 import org.junit.Test;
+import xuan.core.qimen.QiMenZhuanPan;
 import xuan.core.qimen.settings.QiMenZhuanPanJiChuSetting;
 
 /**
@@ -62,9 +63,6 @@ public class QiMenZhuanPanTest {
         System.out.println("季节：" + qiMen.getJiJie());
         System.out.println("生肖：" + qiMen.getShengXiao());
         System.out.println("星座：" + qiMen.getXingZuo());
-        System.out.println("月相：" + qiMen.getYueXiang());
-        System.out.println("月将：" + qiMen.getYueJiang());
-        System.out.println("月将神：" + qiMen.getYueJiangShen());
         System.out.println("五不遇时：" + qiMen.getWuBuYuShi());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
@@ -122,6 +120,36 @@ public class QiMenZhuanPanTest {
         System.out.println("月干支空亡：" + qiMen.getMonthGanZhiKongWang());
         System.out.println("日干支空亡：" + qiMen.getDayGanZhiKongWang());
         System.out.println("时干支空亡：" + qiMen.getHourGanZhiKongWang());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一节：" + qiMen.getPrevJie());
+        System.out.println("上一节日期：" + qiMen.getPrevJieDateStr());
+        System.out.println("距上一节天数：" + qiMen.getPrevJieDay());
+        System.out.println();
+        System.out.println("下一节：" + qiMen.getNextJie());
+        System.out.println("下一节日期：" + qiMen.getNextJieDateStr());
+        System.out.println("距下一节天数：" + qiMen.getNextJieDay());
+        System.out.println();
+        System.out.println("出生节：" + qiMen.getChuShengJie());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一气：" + qiMen.getPrevQi());
+        System.out.println("上一气日期：" + qiMen.getPrevQiDateStr());
+        System.out.println("距上一气天数：" + qiMen.getPrevQiDay());
+        System.out.println();
+        System.out.println("下一气：" + qiMen.getNextQi());
+        System.out.println("下一气日期：" + qiMen.getNextQiDateStr());
+        System.out.println("距下一气天数：" + qiMen.getNextQiDay());
+        System.out.println();
+        System.out.println("出生气：" + qiMen.getChuShengQi());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("月相：" + qiMen.getYueXiang());
+        System.out.println("月将：" + qiMen.getYueJiang());
+        System.out.println("月将神：" + qiMen.getYueJiangShen());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
 

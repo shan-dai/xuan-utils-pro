@@ -393,33 +393,6 @@ public class BaZi {
     }
 
     /**
-     * 获取月相
-     *
-     * @return 月相（如：朔）
-     */
-    public String getYueXiang() {
-        return this.lunar.getYueXiang();
-    }
-
-    /**
-     * 获取月将
-     *
-     * @return 月将（如：子）
-     */
-    public String getYueJiang() {
-        return BaZiJiChuMap.YUE_JIANG.get(this.monthZhi).get(0);
-    }
-
-    /**
-     * 获取月将神
-     *
-     * @return 月将神（如：神后）
-     */
-    public String getYueJiangShen() {
-        return BaZiJiChuMap.YUE_JIANG.get(this.monthZhi).get(1);
-    }
-
-    /**
      * 获取五不遇时
      *
      * @return 五不遇时（true:符合。false:不符合）
@@ -1496,15 +1469,11 @@ public class BaZi {
     /**
      * 获取距上一节天数
      *
-     * @return 距上一节天数（如：1）
+     * @return 距上一节天数（如：24）
      */
     public int getPrevJieDay() {
-
-        Map<String, Long> prevMap = DateUtil.dateInterval(getPrevJieDateStr(), this.solar.toYmdHms()); // 计算上一节气与排盘日期的时间间隔
-        return Math.toIntExact(prevMap.get("days"));
-
+        return Math.toIntExact(DateUtil.dateInterval(getPrevJieDateStr(), this.solar.toYmdHms()).get("days"));
     }
-
 
     /**
      * 获取下一节
@@ -1527,22 +1496,18 @@ public class BaZi {
     /**
      * 获取距下一节天数
      *
-     * @return 距下一节天数（如：1）
+     * @return 距下一节天数（如：5）
      */
     public int getNextJieDay() {
-
-        Map<String, Long> nextMap = DateUtil.dateInterval(this.solar.toYmdHms(), getNextJieDateStr()); // 计算排盘日期与下一节气的时间间隔
-        return Math.toIntExact(nextMap.get("days"));
-
+        return Math.toIntExact(DateUtil.dateInterval(this.solar.toYmdHms(), getNextJieDateStr()).get("days"));
     }
 
-
     /**
-     * 获取出生节气
+     * 获取出生节
      *
-     * @return 出生节气（如：大雪后24天6小时27分16秒、小寒前5天4小时49分8秒）
+     * @return 出生节（如：大雪后24天6小时27分16秒、小寒前5天4小时49分8秒）
      */
-    public String getChuShengJieQi() {
+    public String getChuShengJie() {
 
         Map<String, Long> prevMap = DateUtil.dateInterval(getPrevJieDateStr(), this.solar.toYmdHms()); // 计算上一节气与排盘日期的时间间隔
         Map<String, Long> nextMap = DateUtil.dateInterval(this.solar.toYmdHms(), getNextJieDateStr()); // 计算排盘日期与下一节气的时间间隔
@@ -1563,6 +1528,117 @@ public class BaZi {
         return prevStr + "、" + nextStr;
 
     }
+
+
+    /**
+     * 获取上一气
+     *
+     * @return 上一气（如：冬至）
+     */
+    public String getPrevQi() {
+        return getLunar().getPrevQi(this.baZiJiChuSetting.getJieQiType() == 0).toString();
+    }
+
+    /**
+     * 获取上一气日期
+     *
+     * @return 上一气日期（如：2023-12-22 11:27:09）
+     */
+    public String getPrevQiDateStr() {
+        return getLunar().getPrevQi(this.baZiJiChuSetting.getJieQiType() == 0).getSolar().toYmdHms();
+    }
+
+    /**
+     * 获取距上一气天数
+     *
+     * @return 距上一气天数（如：9）
+     */
+    public int getPrevQiDay() {
+        return Math.toIntExact(DateUtil.dateInterval(getPrevQiDateStr(), this.solar.toYmdHms()).get("days"));
+    }
+
+    /**
+     * 获取下一气
+     *
+     * @return 下一气（如：大寒）
+     */
+    public String getNextQi() {
+        return getLunar().getNextQi(this.baZiJiChuSetting.getJieQiType() == 0).toString();
+    }
+
+    /**
+     * 获取下一气日期
+     *
+     * @return 下一气日期（如：2024-01-20 22:07:08）
+     */
+    public String getNextQiDateStr() {
+        return getLunar().getNextQi(this.baZiJiChuSetting.getJieQiType() == 0).getSolar().toYmdHms();
+    }
+
+    /**
+     * 获取距下一气天数
+     *
+     * @return 距下一节天数（如：19）
+     */
+    public int getNextQiDay() {
+        return Math.toIntExact(DateUtil.dateInterval(this.solar.toYmdHms(), getNextQiDateStr()).get("days"));
+    }
+
+    /**
+     * 获取出生气
+     *
+     * @return 出生气（如：冬至后9天12小时32分51秒、大寒前19天22小时7分8秒）
+     */
+    public String getChuShengQi() {
+
+        Map<String, Long> prevMap = DateUtil.dateInterval(getPrevQiDateStr(), this.solar.toYmdHms()); // 计算上一节气与排盘日期的时间间隔
+        Map<String, Long> nextMap = DateUtil.dateInterval(this.solar.toYmdHms(), getNextQiDateStr()); // 计算排盘日期与下一节气的时间间隔
+
+        long prevDay = prevMap.get("days") > 0 ? prevMap.get("days") : -prevMap.get("days"); // 天
+        long prevHours = prevMap.get("hours") > 0 ? prevMap.get("hours") : -prevMap.get("hours"); // 小时
+        long prevMinutes = prevMap.get("minutes") > 0 ? prevMap.get("minutes") : -prevMap.get("minutes"); // 分
+        long prevSeconds = prevMap.get("seconds") > 0 ? prevMap.get("seconds") : -prevMap.get("seconds"); // 秒
+
+        long nextDay = nextMap.get("days") > 0 ? nextMap.get("days") : -nextMap.get("days"); // 天
+        long nextHours = nextMap.get("hours") > 0 ? nextMap.get("hours") : -nextMap.get("hours"); // 小时
+        long nextMinutes = nextMap.get("minutes") > 0 ? nextMap.get("minutes") : -nextMap.get("minutes"); // 分
+        long nextSeconds = nextMap.get("seconds") > 0 ? nextMap.get("seconds") : -nextMap.get("seconds"); // 秒
+
+        String prevStr = getPrevQi() + "后" + prevDay + "天" + prevHours + "小时" + prevMinutes + "分" + prevSeconds + "秒";
+        String nextStr = getNextQi() + "前" + nextDay + "天" + nextHours + "小时" + nextMinutes + "分" + nextSeconds + "秒";
+
+        return prevStr + "、" + nextStr;
+
+    }
+
+
+    /**
+     * 获取月相
+     *
+     * @return 月相（如：朔）
+     */
+    public String getYueXiang() {
+        return this.lunar.getYueXiang();
+    }
+
+    /**
+     * 获取月将
+     *
+     * @return 月将（如：子）
+     */
+    public String getYueJiang() {
+        return BaZiJiChuMap.YUE_JIANG.get(getPrevQi() + getNextQi()).get(0);
+    }
+
+    /**
+     * 获取月将神
+     *
+     * @return 月将神（如：神后）
+     */
+    public String getYueJiangShen() {
+        return BaZiJiChuMap.YUE_JIANG.get(getPrevQi() + getNextQi()).get(1);
+    }
+
 
     /**
      * 获取人元司令分野

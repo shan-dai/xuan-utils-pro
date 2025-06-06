@@ -96,7 +96,7 @@ public class BaiduMapsUtil {
      * @param ip 机器ip（如：127.0.0.1）
      * @return 地区
      */
-    public static String getIpToAddress(String ip) {
+    public static String getAddressToIp(String ip) {
 
         /* 接口文档地址：https://lbsyun.baidu.com/faq/api?title=webapi/ip-api-base */
 

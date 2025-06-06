@@ -1,8 +1,9 @@
-package xuan.core.bazi;
+package xuan.core;
 
 import java.util.Date;
 
 import org.junit.Test;
+import xuan.core.bazi.BaZi;
 import xuan.core.bazi.settings.BaZiJiChuSetting;
 import xuan.core.bazi.settings.BaZiShenShaSetting;
 import xuan.core.bazi.settings.BaZiGanZhiLiuYiSetting;
@@ -254,9 +255,6 @@ public class BaZiTest {
         System.out.println("日冲生肖：" + baZi.getDayChongShengXiao());
         System.out.println("时冲生肖：" + baZi.getHourChongShengXiao());
         System.out.println("星座：" + baZi.getXingZuo());
-        System.out.println("月相：" + baZi.getYueXiang());
-        System.out.println("月将：" + baZi.getYueJiang());
-        System.out.println("月将神：" + baZi.getYueJiangShen());
         System.out.println("五不遇时：" + baZi.getWuBuYuShi());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
@@ -443,10 +441,30 @@ public class BaZiTest {
         System.out.println("上一节：" + baZi.getPrevJie());
         System.out.println("上一节日期：" + baZi.getPrevJieDateStr());
         System.out.println("距上一节天数：" + baZi.getPrevJieDay());
+        System.out.println();
         System.out.println("下一节：" + baZi.getNextJie());
         System.out.println("下一节日期：" + baZi.getNextJieDateStr());
         System.out.println("距下一节天数：" + baZi.getNextJieDay());
-        System.out.println("出生节气：" + baZi.getChuShengJieQi());
+        System.out.println();
+        System.out.println("出生节：" + baZi.getChuShengJie());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一气：" + baZi.getPrevQi());
+        System.out.println("上一气日期：" + baZi.getPrevQiDateStr());
+        System.out.println("距上一气天数：" + baZi.getPrevQiDay());
+        System.out.println();
+        System.out.println("下一气：" + baZi.getNextQi());
+        System.out.println("下一气日期：" + baZi.getNextQiDateStr());
+        System.out.println("距下一气天数：" + baZi.getNextQiDay());
+        System.out.println();
+        System.out.println("出生气：" + baZi.getChuShengQi());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("月相：" + baZi.getYueXiang());
+        System.out.println("月将：" + baZi.getYueJiang());
+        System.out.println("月将神：" + baZi.getYueJiangShen());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
 

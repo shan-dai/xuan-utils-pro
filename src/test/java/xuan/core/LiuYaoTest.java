@@ -1,8 +1,9 @@
-package xuan.core.liuyao;
+package xuan.core;
 
 import java.util.Date;
 
 import org.junit.Test;
+import xuan.core.liuyao.LiuYao;
 import xuan.core.liuyao.settings.LiuYaoJiChuSetting;
 import xuan.core.liuyao.settings.LiuYaoShenShaSetting;
 
@@ -95,9 +96,6 @@ public class LiuYaoTest {
         System.out.println("季节：" + liuYao.getJiJie());
         System.out.println("生肖：" + liuYao.getShengXiao());
         System.out.println("星座：" + liuYao.getXingZuo());
-        System.out.println("月相：" + liuYao.getYueXiang());
-        System.out.println("月将：" + liuYao.getYueJiang());
-        System.out.println("月将神：" + liuYao.getYueJiangShen());
         System.out.println("五不遇时：" + liuYao.getWuBuYuShi());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
@@ -155,6 +153,36 @@ public class LiuYaoTest {
         System.out.println("月干支空亡：" + liuYao.getMonthGanZhiKongWang());
         System.out.println("日干支空亡：" + liuYao.getDayGanZhiKongWang());
         System.out.println("时干支空亡：" + liuYao.getHourGanZhiKongWang());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一节：" + liuYao.getPrevJie());
+        System.out.println("上一节日期：" + liuYao.getPrevJieDateStr());
+        System.out.println("距上一节天数：" + liuYao.getPrevJieDay());
+        System.out.println();
+        System.out.println("下一节：" + liuYao.getNextJie());
+        System.out.println("下一节日期：" + liuYao.getNextJieDateStr());
+        System.out.println("距下一节天数：" + liuYao.getNextJieDay());
+        System.out.println();
+        System.out.println("出生节：" + liuYao.getChuShengJie());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("上一气：" + liuYao.getPrevQi());
+        System.out.println("上一气日期：" + liuYao.getPrevQiDateStr());
+        System.out.println("距上一气天数：" + liuYao.getPrevQiDay());
+        System.out.println();
+        System.out.println("下一气：" + liuYao.getNextQi());
+        System.out.println("下一气日期：" + liuYao.getNextQiDateStr());
+        System.out.println("距下一气天数：" + liuYao.getNextQiDay());
+        System.out.println();
+        System.out.println("出生气：" + liuYao.getChuShengQi());
+
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+
+        System.out.println("月相：" + liuYao.getYueXiang());
+        System.out.println("月将：" + liuYao.getYueJiang());
+        System.out.println("月将神：" + liuYao.getYueJiangShen());
 
         System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
 

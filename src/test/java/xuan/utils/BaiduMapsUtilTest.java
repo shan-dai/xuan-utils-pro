@@ -42,10 +42,10 @@ public class BaiduMapsUtilTest {
      * 通过机器ip定位获取地区（若机器ip为空，则根据发送请求的机器ip定位）
      */
     @Test
-    public void getIpToAddressTest() {
+    public void getAddressToIpTest() {
 
         String ip = "";
-        String address = BaiduMapsUtil.getIpToAddress(ip);
+        String address = BaiduMapsUtil.getAddressToIp(ip);
         System.out.println(address);
 
     }
